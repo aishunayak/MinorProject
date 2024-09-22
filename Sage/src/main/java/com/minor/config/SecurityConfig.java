@@ -19,8 +19,9 @@ public class SecurityConfig {
             .cors().and() // Enable CORS
             .csrf().disable() // Disable CSRF protection for testing
             .authorizeHttpRequests()
-                .requestMatchers("/api/events/create").permitAll() // Allow access to this endpoint
-                .requestMatchers("/api/users/register").permitAll() // Allow registration endpoint
+                .requestMatchers("/api/events/create").permitAll() 
+                .requestMatchers("/api/users/register").permitAll() 
+                .requestMatchers("/api/registration/**").permitAll() 
                 .anyRequest().authenticated(); // Require authentication for other requests
 
         return http.build();
@@ -29,7 +30,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("http://localhost:5173");  // Allow React frontend
+        configuration.addAllowedOrigin("http://localhost:5173");  // for frontend
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");
         

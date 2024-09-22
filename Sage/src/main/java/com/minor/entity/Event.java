@@ -144,7 +144,7 @@ public class Event {
 		this.organizerEmail = organizerEmail;
 	}
 
-	// Getters and Setters
+	
     public byte[] getLogo() {
         return logo;
     }
@@ -153,5 +153,5 @@ public class Event {
         this.logo = logo;
     }
 
-    // Other getters and setters
+    
 }
